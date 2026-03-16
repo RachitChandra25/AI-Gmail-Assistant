@@ -1,0 +1,213 @@
+/* ---------- TOOLBAR ---------- */
+
+#ai-toolbar {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+}
+
+/* Gmail-style floating pill */
+
+.ai-container {
+  display: flex;
+  gap: 6px;
+  background: #f1f3f4;
+  padding: 6px;
+  border-radius: 24px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  font-family: system-ui;
+  align-items: center;
+}
+
+/* Toolbar buttons */
+
+.ai-btn {
+  border: none;
+  padding: 6px 12px;
+  border-radius: 18px;
+  cursor: pointer;
+  background: transparent;
+  color: #1a73e8;
+  font-size: 13px;
+  font-weight: 500;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease;
+}
+
+.ai-btn:hover {
+  background: rgba(26, 115, 232, 0.1);
+  transform: translateY(-1px);
+}
+
+.ai-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------- LANGUAGE MODAL ---------- */
+
+.ai-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+}
+
+.ai-modal {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  width: 300px;
+  font-family: system-ui;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ai-modal h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+/* Language list */
+
+.ai-language-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ai-language-item {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #f1f3f4;
+  transition: background 0.2s ease;
+}
+
+.ai-language-item:hover {
+  background: #e8eaed;
+}
+
+/* ---------- RESULT PANEL ---------- */
+
+.ai-result-panel {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  width: 360px;
+  max-height: 420px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  overflow-y: auto;
+  font-family: system-ui;
+  z-index: 9999;
+}
+
+/* ---------- PANEL HEADER ---------- */
+
+.ai-panel-header {
+  position: sticky;
+  top: 0;
+  background: white;
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+}
+
+.ai-close-btn {
+  cursor: pointer;
+  font-size: 18px;
+  color: #5f6368;
+}
+
+.ai-close-btn:hover {
+  color: #202124;
+}
+
+/* ---------- RESULT CONTENT ---------- */
+
+.ai-result-content {
+  padding: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ---------- ACTION BUTTONS ---------- */
+
+.ai-result-actions {
+  padding: 12px;
+}
+
+.ai-result-panel button {
+  padding: 6px 10px;
+  margin-right: 6px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #1a73e8;
+  color: white;
+  font-size: 13px;
+}
+
+.ai-result-panel button:hover {
+  background: #1557b0;
+}
+
+/* ---------- AI REPLY BLOCK ---------- */
+
+.ai-reply-block {
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  padding: 12px;
+  margin-top: 10px;
+  background: #f8f9fa;
+  font-family: system-ui;
+}
+
+.ai-reply-content {
+  white-space: pre-line;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* ---------- LOADING ---------- */
+
+.ai-loading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 16px;
+}
+
+.ai-spinner {
+  width: 16px;
+  height: 16px;
+  border: 3px solid #dadce0;
+  border-top: 3px solid #1a73e8;
+  border-radius: 50%;
+  animation: ai-spin 0.8s linear infinite;
+}
+
+@keyframes ai-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ---------- DISABLED BUTTON ---------- */
+
+.ai-disabled {
+  opacity: 0.6;
+  pointer-events: none;
+}
