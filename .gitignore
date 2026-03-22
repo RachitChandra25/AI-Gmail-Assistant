@@ -1,17 +1,50 @@
-# dependencies
+# ------------------------------
+# Dependencies
+# ------------------------------
 node_modules/
 
-# environment variables
+# ------------------------------
+# Environment variables (VERY IMPORTANT)
+# ------------------------------
 .env
+.env.*
+!.env.example   # allow sample env file
 
-# logs
+# ------------------------------
+# Logs
+# ------------------------------
 logs
 *.log
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
-# build folders
+# ------------------------------
+# Build folders
+# ------------------------------
 dist/
 build/
 
+# ------------------------------
 # OS files
+# ------------------------------
 .DS_Store
+Thumbs.db
+
+# ------------------------------
+# Editor / IDE files
+# ------------------------------
+.vscode/
+.idea/
+
+# ------------------------------
+# Temporary files
+# ------------------------------
+*.tmp
+*.temp
+
+# ------------------------------
+# Optional (if you add later)
+# ------------------------------
+coverage/
+.cache/

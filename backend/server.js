@@ -2,8 +2,13 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import Groq from "groq-sdk";
+import fs from "fs";
+import yaml from "js-yaml";
 
 dotenv.config();
+
+// ✅ Load YAML config
+const config = yaml.load(fs.readFileSync("./config.yaml", "utf8"));
 
 const app = express();
 app.use(cors());
@@ -21,10 +26,10 @@ app.post("/summarize", async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `Summarize this email in 3 bullet points:\n${email}`,
+          content: `${config.prompts.summarize}\n${email}`,
         },
       ],
-      model: "llama-3.3-70b-versatile",
+      model: config.groq.model, // ✅ from YAML
     });
 
     const summary = completion.choices[0].message.content;
@@ -49,15 +54,15 @@ app.post("/translate", async (req, res) => {
         },
         {
           role: "user",
-          content: `Translate the following email into ${language}. 
-Return ONLY the translated text in ${language} script. 
+          content: `Translate the following email into ${language}.
+Return ONLY the translated text in ${language} script.
 Do not explain anything.
 
 EMAIL:
 ${email}`,
         },
       ],
-      model: "llama-3.3-70b-versatile",
+      model: config.groq.model, // ✅ from YAML
     });
 
     const translation = completion.choices[0].message.content;
@@ -77,10 +82,10 @@ app.post("/reply", async (req, res) => {
       messages: [
         {
           role: "user",
-          content: `Write a short professional reply to this email:\n${email}`,
+          content: `${config.prompts.reply}\n${email}`,
         },
       ],
-      model: "llama-3.3-70b-versatile",
+      model: config.groq.model, // ✅ from YAML
     });
 
     const reply = completion.choices[0].message.content;
@@ -91,6 +96,7 @@ app.post("/reply", async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log("Server running on port 5000");
+// ✅ Use port from YAML
+app.listen(config.server.port, () => {
+  console.log(`Server running on port ${config.server.port}`);
 });
