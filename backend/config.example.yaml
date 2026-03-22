@@ -1,0 +1,9 @@
+server:
+  port: 5000
+
+groq:
+  model: llama-3.3-70b-versatile
+
+prompts:
+  summarize: "Summarize this email in 3 bullet points:"
+  reply: "Write a short professional reply to this email:"
