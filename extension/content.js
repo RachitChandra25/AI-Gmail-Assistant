@@ -136,29 +136,10 @@ window.insertReplyIntoCompose = function (text) {
   insertAIBlock(composeBox, text);
 };
 
+/* ✅ FIXED HERE: removed grey box wrapper */
 function insertAIBlock(composeBox, text) {
   composeBox.focus();
-
-  let aiBlock = composeBox.querySelector("#ai-reply-block");
-
-  if (aiBlock) {
-    const content = aiBlock.querySelector(".ai-reply-content");
-    content.textContent = text;
-
-    return;
-  }
-
-  const wrapper = document.createElement("div");
-  wrapper.id = "ai-reply-block";
-  wrapper.className = "ai-reply-block";
-
-  const content = document.createElement("div");
-  content.className = "ai-reply-content";
-  content.textContent = text;
-
-  wrapper.appendChild(content);
-
-  composeBox.appendChild(wrapper);
+  composeBox.innerText = text;
 }
 
 window.regenerateReply = async function () {
@@ -171,12 +152,11 @@ window.regenerateReply = async function () {
 };
 
 window.readSummary = function (text) {
-  // Clean markdown / special characters
   const cleanedText = text
-    .replace(/\*/g, "") // remove *
-    .replace(/#/g, "") // remove #
-    .replace(/-/g, "") // remove -
-    .replace(/\n+/g, ". "); // convert line breaks to pauses
+    .replace(/\*/g, "")
+    .replace(/#/g, "")
+    .replace(/-/g, "")
+    .replace(/\n+/g, ". ");
 
   const speech = new SpeechSynthesisUtterance(cleanedText);
 
