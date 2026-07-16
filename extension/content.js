@@ -69,6 +69,22 @@ function attachEvents() {
 
     showResultPanel("AI Reply", data.reply);
   };
+
+  document.getElementById("replyKbBtn").onclick = async () => {
+    const btn = document.getElementById("replyKbBtn");
+    btn.classList.add("ai-disabled");
+
+    const email = getEmailText();
+    if (!email) return;
+
+    showLoadingPanel("Analyzing Knowledge Base & Generating Reply...");
+
+    const data = await callAPI("reply-with-kb", { email });
+
+    btn.classList.remove("ai-disabled");
+
+    showResultPanel("AI Reply", data.reply);
+  };
 }
 
 function insertReplyIntoGmail(replyText) {

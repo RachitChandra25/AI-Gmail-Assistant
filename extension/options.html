@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Gmail Assistant - Knowledge Base</title>
+  <style>
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 30px; max-width: 600px; margin: auto; background-color: #f8f9fa; }
+    .card { background: white; border: 1px solid #e0e0e0; padding: 25px; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+    h2 { margin-top: 0; color: #202124; }
+    p { color: #5f6368; line-height: 1.5; }
+    input[type="file"] { margin: 15px 0; display: block; border: 1px dashed #ccc; padding: 20px; width: 100%; box-sizing: border-box; border-radius: 8px; background: #fafafa; }
+    button { padding: 12px 20px; margin-top: 10px; cursor: pointer; border: none; border-radius: 6px; font-weight: 600; font-size: 14px; transition: opacity 0.2s; }
+    button:hover { opacity: 0.9; }
+    #uploadBtn { background-color: #1a73e8; color: white; }
+    #clearBtn { background-color: #ea4335; color: white; margin-left: 10px; }
+    #status { margin-top: 20px; font-weight: 500; font-size: 14px; }
+    .doc-list { margin-top: 25px; border-top: 1px solid #e0e0e0; padding-top: 15px; }
+    .doc-item { display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #f1f3f4; margin-bottom: 8px; border-radius: 6px; }
+    .doc-item span { font-size: 14px; color: #202124; font-weight: 500; }
+    .doc-item button { margin: 0; background: none; color: #d93025; padding: 5px 10px; font-size: 13px; border: 1px solid #d93025; }
+    .doc-item button:hover { background: #fce8e6; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>Knowledge Base Settings</h2>
+    <p>Upload a PDF document (e.g., your resume, company policies, FAQs). The AI will extract facts from this document to draft hyper-accurate email replies when you click <b>"Reply with Knowledge Base"</b> in Gmail.</p>
+    
+    <input type="file" id="pdfFile" accept=".pdf" />
+    
+    <div>
+        <button id="uploadBtn">Upload to Knowledge Base</button>
+        <button id="clearBtn">Clear Database</button>
+    </div>
+
+    <div id="status"></div>
+
+    <div class="doc-list">
+        <h3 style="margin-top: 0; font-size: 16px; color: #202124;">Uploaded Documents</h3>
+        <div id="documentContainer">Loading...</div>
+    </div>
+  </div>
+  <script src="options.js"></script>
+</body>
+</html>

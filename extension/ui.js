@@ -22,9 +22,15 @@ function createToolbar() {
   replyBtn.innerText = "Reply";
   replyBtn.className = "ai-btn ai-reply";
 
+  const replyKbBtn = document.createElement("button");
+  replyKbBtn.id = "replyKbBtn";
+  replyKbBtn.innerText = "Reply with KB";
+  replyKbBtn.className = "ai-btn ai-reply";
+
   container.appendChild(summarizeBtn);
   container.appendChild(translateBtn);
   container.appendChild(replyBtn);
+  container.appendChild(replyKbBtn);
 
   toolbar.appendChild(container);
   document.body.appendChild(toolbar);

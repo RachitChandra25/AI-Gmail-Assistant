@@ -4,11 +4,13 @@
 node_modules/
 
 # ------------------------------
-# Environment variables (VERY IMPORTANT)
+# Environment variables & Configs
 # ------------------------------
 .env
 .env.*
-!.env.example   # allow sample env file
+!.env.example
+*.yaml
+!*.example.yaml
 
 # ------------------------------
 # Logs
