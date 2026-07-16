@@ -46,6 +46,10 @@ Convert the generated summary into speech using the browser's text-to-speech API
 
 Quickly copy summaries, translations, or replies.
 
+### Knowledge Base & RAG (Retrieval-Augmented Generation)
+
+Upload personal documents (PDFs) to create a custom Knowledge Base. The extension uses RAG, Transformers.js (for embeddings), and an in-memory vector database to perform semantic search and generate hyper-accurate, fact-based email replies tailored to your documents.
+
 ### Smart Toolbar
 
 The AI toolbar only appears when an email is opened, keeping the Gmail interface clean.
@@ -65,9 +69,12 @@ The AI toolbar only appears when an email is opened, keeping the Gmail interface
 - Node.js
 - Express
 
-**AI**
+**AI & RAG**
 
 - Groq API (LLM)
+- Transformers.js (Embeddings)
+- In-Memory Vector Database
+- pdf-parse (Document Extraction)
 
 **Browser APIs**
 
