@@ -106,10 +106,24 @@ cd ai-gmail-assistant
 
 ---
 
-### 2. Start the Backend Server
+### 2. Configure Environment Variables
 
-```
+Navigate to the backend directory and set up your environment files:
+```bash
 cd backend
+cp .env.example .env
+cp config.example.yaml config.yaml
+```
+Open `.env` and add your GROQ API key:
+```env
+GROQ_API_KEY=your_api_key_here
+```
+
+---
+
+### 3. Start the Backend Server
+
+```bash
 npm install
 node server.js
 ```
@@ -122,7 +136,7 @@ http://localhost:5000
 
 ---
 
-### 3. Load the Chrome Extension
+### 4. Load the Chrome Extension
 
 1. Open **Chrome**
 2. Go to **chrome://extensions/**
@@ -132,7 +146,7 @@ http://localhost:5000
 
 ---
 
-### 4. Open Gmail
+### 5. Open Gmail
 
 ```
 https://mail.google.com
